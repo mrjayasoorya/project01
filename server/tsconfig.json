@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@utils/*": ["src/utils/*"],
+      "@routes/*": ["src/routes/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@graphql/*": ["src/graphql/*"],
+      "@controllers/*": ["src/controllers/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

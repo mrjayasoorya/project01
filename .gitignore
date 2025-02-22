@@ -1,0 +1,53 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.env
+.env.local
+.env.*.local
+
+# Next.js
+.next/
+out/
+dist/
+.vercel/
+.vscode/
+
+# Docker
+docker-compose.override.yml
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Logs
+logs/
+*.log
+debug.log
+*.pid
+*.seed
+*.pid.lock
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
+
+# Ignore specific IDEs
+.idea/
+*.sw?
+*.sublime-workspace
+*.sublime-project
+
+# Build output
+build/
+public/static/
