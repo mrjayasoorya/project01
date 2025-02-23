@@ -11,6 +11,8 @@ import jwtVerifyRoute from './routes/jwtVerifyRoute';
 import { errorHandler } from '@middlewares/errorHandler';
 import { ApolloServer } from 'apollo-server-express';
 import { typeDefs, resolvers } from '@graphql/schema';
+import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
+
 // import 'dotenv/config';
 import { JwtPayload } from 'jsonwebtoken';
 
@@ -41,7 +43,12 @@ app.use('/api/auth', authRoutes);
 app.use('/api', jwtVerifyRoute);
 
 // GraphQL setup
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers,
+    introspection: true, // Allow introspection in production
+    plugins: [
+        ApolloServerPluginLandingPageGraphQLPlayground({}),
+      ],
+ });
 
 // Start server and apply middleware
 (async () => {
@@ -52,7 +59,7 @@ const server = new ApolloServer({ typeDefs, resolvers });
 
   // Database Connection and Server Start
   try {
-    // await sequelize.authenticate();
+    await sequelize.authenticate();
     logger.info('Database connected successfully');
     app.listen(PORT, () => {
       logger.info(`Server running on port ${PORT}`);
